@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="editor-panel">
+            <h2>Resume Builder</h2>
+            <p>Fill in the details below to update your resume.</p>
+            
+            <form id="resume-form">
+                <div class="form-group">
+                    <h3>Personal Info</h3>
+                    <label>Full Name</label>
+                    <input type="text" id="nameInput" placeholder="Your Name" oninput="updateResume()">
+                    
+                    <label>Job Title / Header</label>
+                    <input type="text" id="titleInput" placeholder="AI Student/FrontEnd Developer" oninput="updateResume()">
+                    
+                    <label>Profile Image URL (or leave blank)</label>
+                    <input type="file" id="imageInput" accept="image/*" onchange="loadImage(event)">
+                </div>
+
+                <div class="form-group">
+                    <h3>Contact</h3>
+                    <label>Phone</label>
+                    <input type="text" id="phoneInput" placeholder="03312345678" oninput="updateResume()">
+                    <label>Email</label>
+                    <input type="text" id="emailInput" placeholder="email@gmail.com" oninput="updateResume()">
+                    <label>Location</label>
+                    <input type="text" id="addressInput" placeholder="Malir, Karachi" oninput="updateResume()">
+                </div>
+
+                <div class="form-group">
+                    <h3>Objective</h3>
+                    <textarea id="objectiveInput" placeholder="Write a short career summary..." oninput="updateResume()"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <h3>Education (Latest First)</h3>
+                    <textarea id="eduInput" placeholder="Your Education" oninput="updateResume()" rows="4"></textarea>
+                    <small>Separate new lines for each degree.</small>
+                </div>
+
+                <div class="form-group">
+                    <h3>Skills</h3>
+                    <input type="text" id="skillsInput" placeholder="HTML, CSS, Python..." oninput="updateResume()">
+                    
+                    <h3>Interests</h3>
+                    <input type="text" id="interestsInput" placeholder="Cricket, Gaming, Chess..." oninput="updateResume()">
+                </div>
+
+                <button type="button" class="download-btn" onclick="downloadPDF()">Download Resume (PDF)</button>
+            </form>
+        </div>
+
+        <div class="preview-panel">
+            <div id="resume-template">
+                <div class="resume-left">
+                    <div class="profile-img-container">
+                        <img id="profileDisplay" src="https://via.placeholder.com/150" alt="Profile">
+                    </div>
+                    
+                    <div class="section-box">
+                        <h4>Contact</h4>
+                        <p id="phoneDisplay">📞 0300-1234567</p>
+                        <p id="emailDisplay">✉️ user@example.com</p>
+                        <p id="addressDisplay">📍 Karachi, Pakistan</p>
+                    </div>
+
+                    <div class="section-box">
+                        <h4>Interests</h4>
+                        <p id="interestsDisplay">Gaming, Coding, Cricket</p>
+                    </div>
+                </div>
+
+                <div class="resume-right">
+                    <div class="header-name">
+                        <h1 id="nameDisplay">YOUR NAME</h1>
+                        <h3 id="titleDisplay">PROFESSIONAL TITLE</h3>
+                    </div>
+
+                    <div class="resume-section">
+                        <h4>Objective</h4>
+                        <hr>
+                        <p id="objectiveDisplay">Seeking a challenging career...</p>
+                    </div>
+
+                    <div class="resume-section">
+                        <h4>Education</h4>
+                        <hr>
+                        <div id="eduDisplay">
+                            <p><strong>Bachelors in AI</strong><br>Iqra University (2025)</p>
+                        </div>
+                    </div>
+
+                    <div class="resume-section">
+                        <h4>Skills</h4>
+                        <hr>
+                        <div class="skills-grid" id="skillsDisplay">
+                            <span>HTML</span><span>CSS</span><span>Python</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
