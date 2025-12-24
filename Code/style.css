@@ -203,3 +203,48 @@ textarea {
     font-size: 0.9rem;
     font-weight: 600;
 }
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1000px) {
+    
+    body {
+        height: auto;
+        overflow-y: auto; 
+    }
+
+    .main-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+  
+    .editor-panel {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        box-shadow: none;
+    }
+
+    
+    .preview-panel {
+        width: 100%;
+        height: auto;
+        padding: 20px 10px;
+        
+        overflow-x: auto; 
+        display: block; 
+    }
+
+    
+    #resume-template {
+        margin: 0 auto;
+        min-width: 210mm; 
+    }
+}
